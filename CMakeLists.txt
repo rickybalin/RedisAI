@@ -1,5 +1,6 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5.0)
 PROJECT(RedisAI)
+cmake_policy(SET CMP0074 NEW)
 
 # CMake modules should be included in ${PROJECT_SOURCE_DIR}/opt/cmake/modules
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/opt/cmake/modules)
