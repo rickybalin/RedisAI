@@ -122,7 +122,7 @@ ENDIF()
 #----------------------------------------------------------------------------------------------
 
 IF(BUILD_TF)
-    FIND_LIBRARY(TF_LIBRARIES NAMES tensorflow
+    FIND_LIBRARY(TF_LIBRARIES NAMES tensorflow tensorflow_framework
         PATHS ${depsAbs}/libtensorflow/lib)
     MESSAGE(STATUS "Found TensorFlow Libraries: \"${TF_LIBRARIES}\")")
     IF (NOT TF_LIBRARIES)
@@ -228,7 +228,7 @@ IF(BUILD_TF)
     ADD_LIBRARY(redisai_tensorflow SHARED $<TARGET_OBJECTS:redisai_tensorflow_obj>)
     TARGET_LINK_LIBRARIES(redisai_tensorflow ${TF_LIBRARIES})
     SET_TARGET_PROPERTIES(redisai_tensorflow PROPERTIES PREFIX "")
-    SET_TARGET_PROPERTIES(redisai_tensorflow PROPERTIES SUFFIX ".so")
+    SET_TARGET_PROPERTIES(redisai_tensorflow PROPERTIES SUFFIX ".so" ".so.2")
     IF (APPLE)
         SET_TARGET_PROPERTIES(redisai_tensorflow PROPERTIES INSTALL_RPATH "@loader_path/lib")
     ELSE ()
